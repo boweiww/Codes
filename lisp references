@@ -1,0 +1,12 @@
+append: merges two or more lists into one
+cons: Takes 1 element and 1 list. Insert the element as the first element of the list
+#remember that both append and cons will cause a "."  This "." is invisible.
+#(append (a) (b)) will get (a b) but acturally it is (a. b) you cannot use cons or append again to connect this list with other lists
+
+list: It takes any number of arguments and returns a list with the arguments as member elements of the list.
+
+car: get the first element of the list
+# car and atom will cause error
+
+cdr: It takes a list as argument, and returns a list without the first element.
+#remember that cdr '(a) will get nil  cdr nil will get nil 
