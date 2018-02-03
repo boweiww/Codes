@@ -1,0 +1,8 @@
+Select can be used to handle time exceed.
+For expample, for a blocked function read in C. the read will return nothing until all the file is read
+we can just raise a select to handle that if the time is exceed limit, directly go to next instruction
+this could be very useful fot some block functions.
+
+sometimes there could be some strange problems happens.
+If so, try printf and strcpy, it might helps
+
