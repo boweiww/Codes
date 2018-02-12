@@ -1,0 +1,5 @@
+#include <cnet.h> at very beginning
+
+Remember to check the type of connection in the text file, if the connection is defined as link, it won't work on something like 
+Lan or Wlan.
+
