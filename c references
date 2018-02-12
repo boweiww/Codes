@@ -6,3 +6,7 @@ this could be very useful fot some block functions.
 sometimes there could be some strange problems happens.
 If so, try printf and strcpy, it might helps
 
+val = atoi(str) atoi can transfer string into an integer.
+
+remember that argc is an integer and argv[] is a list of strings.
+
