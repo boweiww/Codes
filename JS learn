@@ -1,0 +1,6 @@
+basic print:
+<p>Numbers are written without quotes.</p>
+
+print by refer to an id
+<p id="demo"></p>
+document.getElementById("demo").innerHTML = 
