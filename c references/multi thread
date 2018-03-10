@@ -1,0 +1,10 @@
+example:
+    #include <pthread.h>
+    pthread_mutex_init(&mutex, NULL);
+
+    pthread_t clientThreadID;
+    pthread_create(&clientThreadID, NULL, new_client_loop, NULL);
+    
+note:  
+1.new_client_loop is the function name , it should keep calling something, if you don't want it be excuted only once.
+2.The function new_client_loop is defined as: void* new_client_loop().
