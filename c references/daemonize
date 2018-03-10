@@ -1,0 +1,29 @@
+example:
+void daemonize(){
+    pid_t pid;
+    
+    pid = fork();
+    if (pid < 0) {
+        exit(EXIT_FAILURE);
+    }
+
+    if (pid > 0) {
+        exit(EXIT_SUCCESS);
+    }
+
+    if (setsid() < 0) {
+        exit(EXIT_FAILURE);
+    }
+
+    pid = fork();
+    if (pid < 0) {
+        exit(EXIT_FAILURE);
+    }
+
+    if (pid > 0) {
+        exit(EXIT_SUCCESS);
+    }
+ 
+}
+
+Daemonize can be done by fork().
