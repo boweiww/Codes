@@ -1,0 +1,36 @@
+Socket can be used to send message in LAN.
+example:
+initial socket:
+    sock = socket(AF_INET, SOCK_STREAM, 0);
+    //this sock is the master sock, which is different from the sock that references later.
+    if (sock < 0) {
+        perror("Server: cannot open master socket");
+        exit(1);
+    }
+
+    master.sin_family = AF_INET;
+    master.sin_addr.s_addr = inet_addr(address);
+    master.sin_port = htons(port);
+
+    if (bind (sock, (struct sockaddr*) &master, sizeof (master))) {
+        perror ("Server: cannot bind master socket");
+        exit(1);
+    }
+
+    // wait for connection
+    int result = listen(sock, 5);
+  
+    new_connect.socket = accept(sock, (struct sockaddr*) & from, &fromlength);    
+    if (new_connect.socket < 0) {
+        perror("Error accept failed");
+        term(1);
+    }
+    outnum = htonl(number);
+    
+socket process:
+
+    result = send(socket, &full, size), 0);
+    result = recv(socket, &action, size, 0);
+socket will send a pointer with specified size
+If result < 0, that means the socket is not exist/terminnated. 
+   
