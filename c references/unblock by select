@@ -1,0 +1,37 @@
+example:
+        fd_set readset;
+        FD_ZERO(&readset);
+        FD_SET(socket, &readset);
+
+        struct timeval tv = {1};
+        int result = select(socket + 1, &readset, NULL, NULL, &tv);
+    
+        if (result >= 0) {
+            // Get client's action (NONE, UP, DOWN, LEFT, RIGHT, or SHOOT)
+            result = recv(socket, &action, sizeof(action), 0);
+            if (result < 0) {
+                printf("Lost connection to client during action input.\n");
+                connection_error = TRUE;
+                close(socket);
+                printf("connect err\n");
+            } else {
+
+                if(action == -1) {
+                    connection_error = TRUE;
+                }
+               
+                pthread_mutex_lock(&mutex);   // LOCK.
+
+                // make sure we have the right array location
+                for (int i = 0; i < all_clients.num; ++i) {
+                    if (all_clients.connect_array[i].ID == ID) {
+                        array_location = i;
+                    }
+                }
+
+                all_clients.player_array[array_location].action = action;
+            
+                pthread_mutex_unlock(&mutex); // UNLOCK
+            }
+            
+Use select to handle blocked functions.
