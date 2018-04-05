@@ -10,3 +10,9 @@ val = atoi(str) atoi can transfer string into an integer.
 
 remember that argc is an integer and argv[] is a list of strings.
 
+tips:
+
+1. while calculating float numbers. int/int will give a int not float. In order to fix that we can use 1.0*int/int, 
+this will give a float number. But int/int *1.0 does not work, int/int will give a int, even if you *1.0 the value is still the value
+of a int.
+
